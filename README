@@ -1,0 +1,41 @@
+# Adolescent Health Risk behavior Study (AHRB)
+## Owners 
+Owner on OAK: Michael Demidenko
+
+## Provenance
+Collected at the University of Michigan under the grant: R01HD075806. Imaging data collected between 2017 and 2021.
+Original Owners and curators: Daniel P. Keating, PhD, and Edward D. Huntley, PhD. 
+Data transfered from University of Michigan to Stanford University July 2022.
+
+Relevant descriptions of datasets:
+NIHReport: https://reporter.nih.gov/project-details/9497809
+https://doi.org/10.1007/s10964-019-01057-4
+https://doi.org/10.1016/j.dcn.2020.100798
+
+## Access Restrictions
+No specific restrictions but sharing of BIDS Input data are not authorized under data use agreement. However, derivatives may be shared. 
+Any questions regarding data use should be made to Daniel P. Keating. Associated phenotype/behavioral data for the longitudinal dataset can be accessed from Dr. Keating with BIDS ID to SID file.
+
+## Data notes
+Converted with mids2bids
+First, preprocessing notes:
+	Discarded values for physio: Per Krisanne Litinas at the University of Michigan MRI lab, the MB fMRI protocol collects a 30 second buffer period plus  12 discarged volumes (9.6 seconds). So the physio files contained in each subject's ./func folder have the first 30 seconds (buffer period) + 9.6 (12 additional volumes for calibration) that are already discarded. Hence, the start time in physio files is zero. The calculation used: retained all values after ({30 secs physio buffer} + {9.6 secs calibration vols}) * {Hz}. For example, Hz for respiratory is 25 and Hz for Cardiac is 100. The values after 990 ((30+12)*25) are retained for respirtory .tsv files and after 3960 ((30+ 12)*100) are retained for cardiac .tsv files. Note, in some instances, there was a failure in collecting phyio data so physio files are not present. This occured for: 
+	Sub-52 session 2, no resting state physio data
+	sub-64 session 2, no resting state physio
+	
+	Discarded calibration volumes: the protocol included collection of calibration volumes for each DTI, Resting, Faces and MID run. For fMRI data, an additioaln 12 volumes were collected. For DTI data, an addition 6 volumes were collected. These have been removed from each .nii.gz file. So the final volumes for the fMRI data are, 600 = resting, 407 = MID, 723 = Faces, and final volumes for DTI are 102. For each data type collected, there is an AP-PA associated fieldmap. In some instance due to technical error these were not collected/provided.
+
+Third, several participants have missing runs/folders. 
+	Sub-18 session 2: does not have DTI/Resting state data since they arrived late to the scan. 
+	Sub-26 session 1: does not have MID run 2 data as a result of an error.
+	sub-32 session 1: missing DTI data due to technical error.
+	Sub-36 session 2: missing resting state data due to error
+	Sub-82 session 1: No DTI/resting state data, scan ended early due to participant headache
+
+
+Fourth, there are several notable participant notes:
+	Sub-101 session 1: participant mentioned taking acid the day before
+	Sub-103 session 2: participant very particular about vision correction but could see screen. Left to use restroom before resting state scan
+	Sub-98 session 1: participant *appeared* (session RA inspection of button box lights) to stop responding towards the end to all trials towards the end of MID run 2
+	Sub-74 session 1: participant *appeared* (session RA inspection of button box lights) to not always respond during faces task 
+	Sub-52 session 1: participant stopped hitting trigger during MID run 2
