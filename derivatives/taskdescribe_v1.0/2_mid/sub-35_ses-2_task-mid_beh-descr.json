@@ -1,0 +1,112 @@
+{
+    "Run 1": {
+        "Total Trials": 50,
+        "Trial Order": [
+            999
+        ],
+        "Trialwise Sequence": {
+            "loss-gain": 9,
+            "gain-loss": 8,
+            "gain-gain": 8,
+            "neutral-loss": 6,
+            "loss-loss": 6,
+            "loss-neutral": 5,
+            "neutral-gain": 3,
+            "gain-neutral": 3,
+            "neutral-neutral": 1
+        },
+        "Trials Per Cue Condition": {
+            "NoMoneyStake": 10,
+            "SmallGain": 10,
+            "LargeLoss": 10,
+            "LargeGain": 10,
+            "SmallLoss": 10
+        },
+        "Trials Per Feedback Condition": {
+            "You earn $5!": 9,
+            "Neutral Miss": 6,
+            "You keep $0.20!": 6,
+            "You earn $0.20!": 5,
+            "You keep $5!": 5,
+            "You did not earn $0.20!": 5,
+            "You lose $5!": 5,
+            "Neutral Hit": 4,
+            "You lose $0.20!": 4,
+            "You did not earn $5!": 1
+        },
+        "Accuracy by Cue Condition": {
+            "LargeGain": 0.9,
+            "LargeLoss": 0.5,
+            "NoMoneyStake": 0.4,
+            "SmallGain": 0.5,
+            "SmallLoss": 0.6
+        },
+        "Overall Accuracy": 0.58,
+        "Mean RT": 247.51724137931035,
+        "Mean RT by Hit/Miss": {
+            "1": 247.51724137931035
+        },
+        "Mean RT by Cue Condition": {
+            "LargeGain": 238.33333333333334,
+            "LargeLoss": 254.4,
+            "NoMoneyStake": 265.25,
+            "SmallGain": 245.0,
+            "SmallLoss": 245.83333333333334
+        }
+    },
+    "Run 2": {
+        "Total Trials": 50,
+        "Trial Order": [
+            999
+        ],
+        "Trialwise Sequence": {
+            "gain-loss": 10,
+            "loss-gain": 9,
+            "gain-gain": 6,
+            "neutral-loss": 5,
+            "loss-loss": 5,
+            "loss-neutral": 5,
+            "gain-neutral": 4,
+            "neutral-gain": 4,
+            "neutral-neutral": 1
+        },
+        "Trials Per Cue Condition": {
+            "LargeGain": 10,
+            "NoMoneyStake": 10,
+            "SmallLoss": 10,
+            "LargeLoss": 10,
+            "SmallGain": 10
+        },
+        "Trials Per Feedback Condition": {
+            "You keep $0.20!": 8,
+            "You earn $5!": 6,
+            "Neutral Hit": 6,
+            "You earn $0.20!": 6,
+            "You keep $5!": 5,
+            "You lose $5!": 5,
+            "Neutral Miss": 4,
+            "You did not earn $0.20!": 4,
+            "You did not earn $5!": 4,
+            "You lose $0.20!": 2
+        },
+        "Accuracy by Cue Condition": {
+            "LargeGain": 0.6,
+            "LargeLoss": 0.5,
+            "NoMoneyStake": 0.6,
+            "SmallGain": 0.6,
+            "SmallLoss": 0.8
+        },
+        "Overall Accuracy": 0.62,
+        "Mean RT": 259.7741935483871,
+        "Mean RT by Hit/Miss": {
+            "1": 259.7741935483871
+        },
+        "Mean RT by Cue Condition": {
+            "LargeGain": 254.0,
+            "LargeLoss": 247.8,
+            "NoMoneyStake": 272.1666666666667,
+            "SmallGain": 262.6666666666667,
+            "SmallLoss": 260.125
+        }
+    }
+}

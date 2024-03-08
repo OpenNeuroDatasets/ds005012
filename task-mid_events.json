@@ -1,4 +1,12 @@
 {
+    "onset": {
+        "LongName": "default bids onset column",
+        "Description": "default to avoid validation errors. Values n/a, use below."
+    },
+    "duration": {
+        "LongName": "default bids duration column",
+        "Description": "default to avoid validation errors. Values n/a, use below."
+    },
     "TRIAL_TYPE": {
         "LongName": "Trial type",
         "Description": "Trial type indicates the value of the trial",
