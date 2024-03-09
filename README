@@ -14,11 +14,10 @@ Relevant descriptions of datasets:
 - https://doi.org/10.1016/j.dcn.2020.100798
 
 ## Access Restrictions
-No specific restrictions but sharing of BIDS Input data are not authorized under data use agreement. However, derivatives may be shared. 
-Any questions regarding data use should be made to Daniel P. Keating. Associated phenotype/behavioral data for the longitudinal dataset can be accessed from Dr. Keating with BIDS ID to SID file.
+No specific restrictions but data were shared under the authorization from Dr. Daniel Keating. Associated phenotype/behavioral data for the longitudinal dataset can be accessed from Dr. Keating with BIDS ID to SID file.
 
 ## Data Notes
-Converted with in-house mids2bids at University of Michigan
+Converted with in-house mids2bids at University of Michigan with the help of Krisanne Litinas
 
 ### Preprocessing notes:
 - Discarded values for physio: Per Krisanne Litinas at the University of Michigan MRI lab, the MB fMRI protocol collects a 30-second buffer period plus 12 discarded volumes (9.6 seconds). So the physio files contained in each subject's ./func folder have the first 30 seconds (buffer period) + 9.6 (12 additional volumes for calibration) that are already discarded. Hence, the start time in physio files is zero. The calculation used: retained all values after ({30 secs physio buffer} + {9.6 secs calibration vols}) * {Hz}. For example, Hz for respiratory is 25 and Hz for Cardiac is 100. The values after 990 ((30+12)*25) are retained for respiratory .tsv files and after 3960 ((30+ 12)*100) are retained for cardiac .tsv files. Note, in some instances, there was a failure in collecting phyio data so physio files are not present. This occurred for:
@@ -30,4 +29,38 @@ Converted with in-house mids2bids at University of Michigan
 
 - There are several notable participant notes:
   - Sub-103 session 2: participant very particular about vision correction but could see screen. Left to use restroom before resting state scan
+
+
+Command used for fMRIPrep v23.1.4:
+```html
+<code>
+singularity_cmd="singularity run \
+    -B $OAK:$OAK \
+    -B $OAK/data/templateflow:/opt/templateflow  \
+    -B ${L_SCRATCH}:/tmp ${GROUP_HOME}/singularity_images/mriqc_23.1.0rc0.simg \
+    ${BIDS_DIR} ${OUTPUT_DIR} participant \
+    --participant-label ${sub} \
+    --ants-nthreads 8 \
+    --nprocs 12 \
+    --mem_gb 30 \
+    -vv --dsname AHRB \
+    --verbose-reports \
+    -w /tmp/work -m bold T1w T2w"
+</code>
+```
+
+Command used for MRIQC v23.1.0:
+
+singularity_cmd="singularity run \
+        -B $OAK:$OAK \
+        -B $OAK/data/templateflow:/opt/templateflow  \
+        -B ${L_SCRATCH}:/tmp ${GROUP_HOME}/singularity_images/mriqc_23.1.0rc0.simg \
+        ${BIDS_DIR} ${OUTPUT_DIR} participant \
+        --participant-label ${sub} \
+        --ants-nthreads 8 \
+        --nprocs 12 \
+        --mem_gb 30 \
+        -vv --dsname AHRB \
+        --verbose-reports \
+        -w /tmp/work -m bold T1w T2w"
 
